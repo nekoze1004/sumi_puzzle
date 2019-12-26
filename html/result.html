@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>きよまさ杯6 角パズル</title>
+    </head>
+    <body>
+        <p>結果画面が表示されるよ。</p>
+        <p>お名前 ${name}</p>
+        <P>類似度(仮の値) ${ruijido}</P>
+        <form action="/ranking" method="GET">
+            <input type="hidden" name="name" value=${name}>
+            <input type="submit" value="ランキングを見る">
+        </form>
+    </body>
+</html>

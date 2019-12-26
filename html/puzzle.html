@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>きよまさ杯6 角パズル</title>
+    </head>
+    <body>
+        <p>パズル画面が表示されるよ。</p>
+        <p>お名前 ${name}</p>
+        <form action="/result" method="GET">
+            <input type="hidden" name="name" value=${name}>
+            <input type="submit" value="パズル終了">
+        </form>
+    </body>
+</html>
