@@ -1,0 +1,86 @@
+img{
+  /* display: inline-block; */
+  margin: auto;
+  width: 30vw;
+}
+.parts {
+  position: absolute;
+}
+#ear-r {
+  top: 350px;
+  left: 50px;
+}
+#ear-l {
+  top: 350px;
+  left: 150px;
+}
+#eye-r {
+  top: 350px;
+  left: 250px;
+}
+#eye-l {
+  top: 500px;
+  left: 50px;
+}
+#hair_left {
+  top: 500px;
+  left: 120px;
+}
+#hair_right{
+  top: 500px;
+  left: 250px;
+}
+#nose {
+  top: 600px;
+  left: 100px;
+}
+#mihon {
+  padding: 20px;
+  width: 200px;
+  background: #FFF;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  border: #000 2px solid;
+}
+#mihon img {
+  width: 100%;
+}
+#mekakusi {
+  width: 508px;
+  height: 513px;
+  background: #ccc;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 254px);
+  z-index: 10;
+  pointer-events: none;
+  display: none;
+}
+#face {
+  margin: 80px auto 0;
+  background: url(../img/face2.png) no-repeat;
+  width: 508px;
+  height: 513px;
+  z-index: -1;
+  position: relative;
+}
+button {
+  margin: 30px auto 0;
+  padding: 15px 0;
+  width: 200px;
+  color: #FFF;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  text-align: center;
+  display: block;
+}
+button#start {
+  background: #73B9FF;
+}
+button#kansei {
+  background: #FF2626;
+  display: none;
+}
