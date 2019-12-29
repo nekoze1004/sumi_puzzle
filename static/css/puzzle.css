@@ -6,6 +6,7 @@ body {
     background-color: gray;
     color: white;
 }
+
 h1 {
     font-size: 10vw;
     margin-top: -10px;
@@ -15,11 +16,12 @@ h1 {
 h2 {
     font-size: 5vw;
     margin-top: -5px;
-
 }
-.parts{
+
+.parts {
     position: relative;
-} 
+}
+
 
 #mihon img {
     border: #000 2px solid;
@@ -28,10 +30,13 @@ h2 {
 
 /* 輪郭 */
 #face {
-    margin: 80px auto 0;
-    background: url(../img/face2.png) no-repeat;
-    position: relative;
-    z-index: -1;
+    /* margin: 80px auto 0; */
+    background: url(../img/face.png) no-repeat;
+    background-size:contain;  
+    width: 600px;
+    height: 760px;
+    /* position: relative; */
+    /* z-index: -1; */
 }
 
 button, input {
@@ -58,6 +63,7 @@ input#kansei {
 }
 
 /* 目隠し機能*/
+
 /* 
 #mekakusi {
   width: 508px;
