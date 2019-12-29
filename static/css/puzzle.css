@@ -17,47 +17,9 @@ h2 {
     margin-top: -5px;
 
 }
-/* .parts-size {
-    width: 10vw;
-}
 .parts{
-    position: absolute;
-} */
-
-#ear-r {
-    top: 350px;
-    left: 50px;
-}
-
-#ear-l {
-    top: 350px;
-    left: 150px;
-}
-
-#eye-r {
-    top: 350px;
-    left: 250px;
-}
-
-#eye-l {
-    top: 500px;
-    left: 50px;
-}
-
-#hair_left {
-    top: 500px;
-    left: 120px;
-}
-
-#hair_right {
-    top: 500px;
-    left: 250px;
-}
-
-#nose {
-    top: 600px;
-    left: 100px;
-}
+    position: relative;
+} 
 
 #mihon img {
     border: #000 2px solid;

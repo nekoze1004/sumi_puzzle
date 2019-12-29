@@ -1,14 +1,15 @@
-$(function(){
+$("#kansei").hide();
 
+$(function(){
   $("#start").on("click", function(){
     $(".parts").draggable();
-    $("#mekakusi").show();
+    // $("#mekakusi").show();
     $(this).hide();
     $("#kansei").show();
   });
 
   $("#kansei").on("click", function(){
-    $("#mekakusi").hide();
+    // $("#mekakusi").hide();
     $(".parts").draggable("disable");
   });
 });
