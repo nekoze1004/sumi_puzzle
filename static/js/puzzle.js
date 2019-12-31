@@ -1,5 +1,3 @@
-$("#kansei").hide();
-
 $(function(){
   $("#start").on("click", function(){
     $(".parts").draggable();
@@ -7,9 +5,11 @@ $(function(){
     $(this).hide();
     $("#kansei").show();
   });
-
+  
   $("#kansei").on("click", function(){
     // $("#mekakusi").hide();
     $(".parts").draggable("disable");
+    $("#kansei").hide();
+    $("#post").show();
   });
 });
