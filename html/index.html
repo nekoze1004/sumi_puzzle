@@ -14,7 +14,7 @@
     <h2>すみパズルへようこそ</h2>
     <form action="/puzzle" method="GET">
         <label>なまえ</label>
-            <input type="text" name="name" class="name">
+            <input type="text" name="name" class="name"  placeholder="なまえをいれてね"　 pattern="(?=.*?[\u3041-\u309F])[\u3041-\u309F\s]*" required>
         <input type="submit" value="かいしする">
     </form>
 </body>
