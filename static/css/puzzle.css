@@ -20,6 +20,9 @@ h2 {
 
 .parts-position {
     display: inline-block;
+    border: black solid 2px;
+    width: 300px;
+    height: 380px;
 }
 
 .parts {
@@ -35,9 +38,6 @@ h2 {
 /* 輪郭 */
 
 #face {
-    /* margin: 80px auto 0; */
-    background: url(../img/face.png) no-repeat;
-    background-size: contain;
     width: 300px;
     height: 380px;
     position: relative;
@@ -67,6 +67,11 @@ button#start {
 }
 #post {
     background: #FF2626;
+    color: white;
+    display: none;
+}
+#btn-Preview-Image {
+    background: blue;
     color: white;
     display: none;
 }
