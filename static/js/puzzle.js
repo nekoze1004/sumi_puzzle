@@ -1,8 +1,7 @@
 
 $(function () {
-  var element = $("#face"); // 画像化したい要素をセレクタに指定
-var getCanvas;
-  $("#btn-Preview-Image").hide();
+  var element = $("#images"); // 画像化したい要素をセレクタに指定
+  var getCanvas;
   $("#start").on("click", function () {
     $(".parts").draggable();
     // $("#mekakusi").show();
@@ -19,13 +18,14 @@ var getCanvas;
   });
 
   //プレビュー
-$("#btn-Preview-Image").on('click', function () {
-  html2canvas(element, {
-    onrendered: function (canvas) {
-      $("#previewImage").append(canvas);
-      getCanvas = canvas;
-    }
+  $("#btn-Preview-Image").on('click', function () {
+    html2canvas(element, {
+      onrendered: function (canvas) {
+        $("#previewImage").append(canvas);
+        getCanvas = canvas;
+      }
+    });
+    $("#btn-Preview-Image").hide();
   });
-});
 });
 
