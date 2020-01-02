@@ -2,9 +2,17 @@ html {
     font-family: "Nico Moji";
 }
 
-body {
+.back {
     background-color: gray;
+    margin: -10px;
+    padding: 10px;
+}
+
+body {
     color: white;
+    background-repeat: repeat-x, repeat-y;
+    background: url(../img/sumi_illust.bmp);
+    background-size: 100px;
 }
 
 input, input.name {
@@ -21,7 +29,6 @@ h1 {
 h2 {
     font-size: 5vw;
     margin-top: -5px;
-
 }
 
 label {
@@ -31,8 +38,8 @@ label {
     max-width: 100%;
     margin-bottom: 5px;
     font-weight: bold;
-
 }
+
 input {
     font-size: 3vw;
     border-radius: 10px;
@@ -44,22 +51,34 @@ input.name {
     height: 40px;
 }
 
-@media screen and (max-width:767px) {
-    /*　画面サイズが767px以下の場合読み込む　*/
+@media screen and (max-width: 479px) {
+    /*ウィンドウ幅が最大479pxまでの場合に適用*/
     h1 {
+        font-size: 15vw;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    h2 {
+        font-size: 8vw;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    label {
         font-size: 5vw;
-    }
-    h2, h3 {
-        font-size: 4vw;
-    }
-    p {
-        font-size: 3vw;
+        vertical-align: middle;
+        display: inline-block;
+        max-width: 100%;
+        font-weight: bold;
     }
     .form_set, input {
-        font-size: 2vw;
+        font-size: 5vw;
+        height: 40px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     input.name {
-        height: 30px;
-        width: 5vw;
+        vertical-align: middle;
+        width: 150px;
+        height: 35px;
     }
 }
