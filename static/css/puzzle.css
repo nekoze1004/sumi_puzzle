@@ -35,6 +35,7 @@ h2 {
     width: 10%;
 }
 
+
 /* 輪郭 */
 
 #face {
@@ -44,8 +45,8 @@ h2 {
     /* z-index: -1; */
 }
 
-button, input {
-    margin: 30px auto 0;
+button,
+input {
     padding: 15px 0;
     width: 200px;
     color: #FFF;
@@ -53,30 +54,38 @@ button, input {
     font-size: 20px;
     font-weight: bold;
     border: none;
-    text-align: center;
     display: block;
 }
 
 button#start {
     background: #73B9FF;
 }
+
 #kansei {
     background: #FF2626;
     color: white;
     display: none;
 }
+
+#Pre {
+    background: #FF2626;
+    color: white;
+    display: none;
+}
+
 #post {
     background: #FF2626;
     color: white;
     display: none;
 }
+
 #download {
-    background: blue;
-    color: white;
     display: none;
 }
 
+
 /* 目隠し機能*/
+
 
 /* 
 #mekakusi {
