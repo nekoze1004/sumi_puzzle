@@ -19,16 +19,26 @@
     <div id="mihon"><img src="../static/img/sumi_illust.bmp"></div>
 
     <button id="start">スタート</button>
-    <button id="kansei">完成！</button>
     <form action="/result" method="GET">
         <input type="hidden" name="name" value=${name}>
-        <input id="post" type="submit" value="パズル終了">
+        <input type="hidden" name="earl" id="earl">
+        <input type="hidden" name="earr" id="earr">
+        <input type="hidden" name="eyel" id="eyel">
+        <input type="hidden" name="eyer" id="eyer">
+        <input type="hidden" name="hairl" id="hairl">
+        <input type="hidden" name="hairr" id="hairr">
+        <input type="hidden" name="higel" id="higel">
+        <input type="hidden" name="higer" id="higer">
+        <input type="hidden" name="higec" id="higec">
+        <input type="hidden" name="mayul" id="mayul">
+        <input type="hidden" name="mayur" id="mayur">
+        <input type="hidden" name="mous" id="mous">
+        <input type="hidden" name="nose_" id="nose_">
+        <input id="kansei" type="submit" value="パズル終了">
     </form>
-    <button id="Pre">ぷれびゅう</button>
-    <a id="download" href="#">ダウンロード</a>
     <div id="images">
+        <img class="parts-image" id="face" src="../static/img/face.png">
         <!-- 各パーツ -->
-        <div class="parts"><img class="parts-image" id="face" src="../static/img/face.png"></div>
         <div id="ear-r" class="parts"><img class="parts-image" src="../static/img/ear_right.png"></div>
         <div id="ear-l" class="parts"><img class="parts-image" src="../static/img/ear_left.png"></div>
         <div id="eye-r" class="parts"><img src="../static/img/eye_right.png"></div>
@@ -40,11 +50,10 @@
         <div id="hige_right" class="parts"><img src="../static/img/hige_right.png"></div>
         <div id="mayu_right" class="parts"><img src="../static/img/mayu_right.png"></div>
         <div id="mayu_left" class="parts"><img src="../static/img/mayu_left.png"></div>
-        <div id="mosue" class="parts"><img src="../static/img/mouse.png"></div>
+        <div id="mou" class="parts"><img src="../static/img/mouse.png"></div>
         <div id="nose" class="parts"><img src="../static/img/nose.png"></div>
     </div>
-    <div id="previewImage" class="parts"></div>
     <div id="mekakusi"></div>
 </body>
 
-</html>
+</html
