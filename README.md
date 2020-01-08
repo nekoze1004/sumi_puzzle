@@ -5,6 +5,6 @@
 # ぱずるはjsで書いたお
 参考ぺーz：https://magnets.jp/web_design/9983/
 
-さくせいした画像をぷれびゅーする
+画像の位置座標取得だお
 
-参考ページ：http://kachibito.net/snippets/convert-html-to-image-in-jquery
+https://www.flatflag.nir87.com/position-1939
