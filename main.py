@@ -39,9 +39,47 @@ def puzzle():
     return html
 
 
+def parts_purge(raw_data):
+    _, x, y = raw_data.split("_")
+    x = int(x)
+    y = int(y)
+    return (x, y)
+
+
 @app.route("/result/", methods=["GET"])
 def result():
     name = request.args.get("name")
+    earl = request.args.get("earl")
+    earr = request.args.get("earr")
+    eyel = request.args.get("eyel")
+    eyer = request.args.get("eyer")
+    hairl = request.args.get("hairl")
+    hairr = request.args.get("hairr")
+    higel = request.args.get("higel")
+    higer = request.args.get("higer")
+    higec = request.args.get("higec")
+    mayul = request.args.get("mayul")
+    mayur = request.args.get("mayur")
+    mous = request.args.get("mous")
+    nose_ = request.args.get("nose_")
+
+    # 各パーツの座標を辞書型で保持する
+    parts = {"ear_left": parts_purge(earl),
+             "ear_right": parts_purge(earr),
+             "eye_left": parts_purge(eyel),
+             "eye_right": parts_purge(eyer),
+             "hair_left": parts_purge(hairl),
+             "hair_right": parts_purge(hairr),
+             "hige_center": parts_purge(higec),
+             "hige_left": parts_purge(higel),
+             "hige_right": parts_purge(higer),
+             "mayu_left": parts_purge(mayul),
+             "mayu_right": parts_purge(mayur),
+             "mouse": parts_purge(mous),
+             "nose": parts_purge(nose_)}
+    print(parts)
+    # 画像合成の始まり
+    
     # ここで類似度計算をする
     ruijido = random.randint(0, 100)
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../static/img/sumi.ico">
+    <title>PUZZLE</title>
+    <link rel="stylesheet" href="../static/css/puzzle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script src="../static/js/puzzle.js"></script>
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+</head>
+
+<body>
+    <h1>パズルだよぉ～</h1>
+    <h2>お名前：${name}さん</h2>
+    <div id="mihon"><img src="../static/img/sumi_illust.bmp"></div>
+
+    <button id="start">スタート</button>
+    <form action="/result" method="GET">
+        <input type="hidden" name="name" value=${name}>
+        <input type="hidden" name="earl" id="earl" value="">
+        <input type="hidden" name="earr" id="earr" value="">
+        <input type="hidden" name="eyel" id="eyel" value="">
+        <input type="hidden" name="eyer" id="eyer" value="">
+        <input type="hidden" name="hairl" id="hairl" value="">
+        <input type="hidden" name="hairr" id="hairr" value="">
+        <input type="hidden" name="higel" id="higel" value="">
+        <input type="hidden" name="higer" id="higer" value="">
+        <input type="hidden" name="higec" id="higec" value="">
+        <input type="hidden" name="mayul" id="mayul" value="">
+        <input type="hidden" name="mayur" id="mayur" value="">
+        <input type="hidden" name="mous" id="mous" value="">
+        <input type="hidden" name="nose_" id="nose_" value="">
+        <input id="kansei" type="submit" value="パズル終了">
+    </form>
+    <div id="images">
+        <img class="parts-image" id="face" src="../static/img/face.png">
+        <!-- 各パーツ -->
+        <div id="ear-r" class="parts"><img class="parts-image" src="../static/img/ear_right.png"></div>
+        <div id="ear-l" class="parts"><img class="parts-image" src="../static/img/ear_left.png"></div>
+        <div id="eye-r" class="parts"><img src="../static/img/eye_right.png"></div>
+        <div id="eye-l" class="parts"><img src="../static/img/eye_left.png"></div>
+        <div id="hair-left" class="parts hair"><img src="../static/img/hair_left.png"></div>
+        <div id="hair-right" class="parts"><img src="../static/img/hair_right.png"></div>
+        <div id="hige-left" class="parts"><img src="../static/img/hige_left.png"></div>
+        <div id="hige-center" class="parts"><img src="../static/img/hige_center.png"></div>
+        <div id="hige-right" class="parts"><img src="../static/img/hige_right.png"></div>
+        <div id="mayu-right" class="parts"><img src="../static/img/mayu_right.png"></div>
+        <div id="mayu-left" class="parts"><img src="../static/img/mayu_left.png"></div>
+        <div id="mou" class="parts"><img src="../static/img/mouse.png"></div>
+        <div id="nose" class="parts"><img src="../static/img/nose.png"></div>
+    </div>
+    <div id="mekakusi"></div>
+</body>
+
+</html
