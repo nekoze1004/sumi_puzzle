@@ -21,7 +21,7 @@ $(function() {
             console.log(plc);
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var ear = "ear-l:" + Math.round(top) + ":" + Math.round(left);
+            var ear = "ear-l_" + Math.round(top) + "_" + Math.round(left);
             console.log(ear);
             // コンソールに表示
             var ear_l = document.getElementById('earl');
@@ -33,7 +33,7 @@ $(function() {
             var plc = $('#ear-r').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var ear = "ear-r:" + Math.round(top) + ":" + Math.round(left);
+            var ear = "ear-r_" + Math.round(top) + "_" + Math.round(left);
             console.log(ear);
             // コンソールに表示
             var ear_l = document.getElementById('earr');
@@ -45,7 +45,7 @@ $(function() {
             var plc = $('#eye-l').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var eye = "eye-l:" + Math.round(top) + ":" + Math.round(left);
+            var eye = "eye-l_" + Math.round(top) + "_" + Math.round(left);
             // コンソールに表示
             console.log(eye);
             var eye_l = document.getElementById('eyel');
@@ -57,91 +57,91 @@ $(function() {
             var plc = $('#eye-r').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var eye = "eye-r:" + Math.round(top) + ":" + Math.round(left);
+            var eye = "eye-r_" + Math.round(top) + "_" + Math.round(left);
             // コンソールに表示
             console.log(eye);
             var eye_r = document.getElementById('eyer');
             eye_r.value = eye;
         }
     });
-    $('#hair_left').draggable({
+    $('#hair-left').draggable({
         stop: function(e, ui) {
-            var plc = $('#hair_left').position();
+            var plc = $('#hair-left').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var hair = "hair_l:" + Math.round(top) + ":" + Math.round(left);
+            var hair = "hair-l_" + Math.round(top) + "_" + Math.round(left);
             // コンソールに表示
             console.log(hair);
             var hair_l = document.getElementById('hairl');
             hair_l.value = hair;
         }
     });
-    $('#hair_right').draggable({
+    $('#hair-right').draggable({
         stop: function(e, ui) {
-            var plc = $('#hair_right').position();
+            var plc = $('#hair-right').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var hair = "hair_r:" + Math.round(top) + ":" + Math.round(left);
+            var hair = "hair-r_" + Math.round(top) + "_" + Math.round(left);
             // コンソールに表示
             console.log(hair);
             var hair_r = document.getElementById('hairr');
             hair_r.value = hair;
         }
     });
-    $('#hige_left').draggable({
+    $('#hige-left').draggable({
         stop: function(e, ui) {
-            var plc = $('#hige_left').position();
+            var plc = $('#hige-left').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var hige = "hige_l:" + Math.round(top) + ":" + Math.round(left);
+            var hige = "hige-l_" + Math.round(top) + "_" + Math.round(left);
             // コンソールに表示
             console.log(hige);
             var hige_l = document.getElementById('higel');
             hige_l.value = hige;
         }
     });
-    $('#hige_right').draggable({
+    $('#hige-right').draggable({
         stop: function(e, ui) {
-            var plc = $('#hige_right').position();
+            var plc = $('#hige-right').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var hige = "hige_r:" + Math.round(top) + ":" + Math.round(left);
+            var hige = "hige-r_" + Math.round(top) + "_" + Math.round(left);
             // コンソールに表示
             console.log(hige);
             var hige_r = document.getElementById('higer');
             hige_r.value = hige;
         }
     });
-    $('#hige_center').draggable({
+    $('#hige-center').draggable({
         stop: function(e, ui) {
-            var plc = $('#hige_center').position();
+            var plc = $('#hige-center').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var hige = "hige_c:" + Math.round(top) + ":" + Math.round(left);
+            var hige = "hige-c_" + Math.round(top) + "_" + Math.round(left);
             // コンソールに表示
             console.log(hige);
             var hige_c = document.getElementById('higec');
             hige_c.value = hige;
         }
     });
-    $('#mayu_left').draggable({
+    $('#mayu-left').draggable({
         stop: function(e, ui) {
-            var plc = $('#mayu_left').position();
+            var plc = $('#mayu-left').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var mayu = "mayu_l:" + Math.round(top) + ":" + Math.round(left);
+            var mayu = "mayu-l_" + Math.round(top) + "_" + Math.round(left);
             // コンソールに表示
             console.log(mayu);
             var mayu_l = document.getElementById('mayul');
             mayu_l.value = mayu;
         }
     });
-    $('#mayu_right').draggable({
+    $('#mayu-right').draggable({
         stop: function(e, ui) {
-            var plc = $('#mayu_right').position();
+            var plc = $('#mayu-right').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var mayu = "mayu_r:" + Math.round(top) + ":" + Math.round(left);
+            var mayu = "mayu-r_" + Math.round(top) + "_" + Math.round(left);
             // コンソールに表示
             console.log(mayu);
             var mayu_r = document.getElementById('mayur');
@@ -153,7 +153,7 @@ $(function() {
             var plc = $('#mou').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var mouse = "mouse:" + Math.round(top) + ":" + Math.round(left);
+            var mouse = "mouse_" + Math.round(top) + "_" + Math.round(left);
             // コンソールに表示
             console.log(mouse);
             var mouse_ = document.getElementById('mous');
@@ -165,7 +165,7 @@ $(function() {
             var plc = $('#nose').position();
             var top = plc.top - face_top;
             var left = plc.left - face_left;
-            var nose = "nose:" + Math.round(top) + ":" + Math.round(left);
+            var nose = "nose_" + Math.round(top) + "_" + Math.round(left);
             // コンソールに表示
             console.log(nose);
             var nose_ = document.getElementById('nose_');

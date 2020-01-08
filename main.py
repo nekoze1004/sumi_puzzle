@@ -79,7 +79,7 @@ def result():
              "nose": parts_purge(nose_)}
     print(parts)
     # 画像合成の始まり
-    
+
     # ここで類似度計算をする
     ruijido = random.randint(0, 100)
 
