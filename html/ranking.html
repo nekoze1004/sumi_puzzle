@@ -6,16 +6,30 @@
     <title>RANKING</title>
     <link rel="shortcut icon" href="../static/img/sumi.ico">
     <link rel="stylesheet" href="../static/css/rank.css">
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
 </head>
 
 <body>
     <h1>けっかはっぴょう～</h1>
-    <h2>お名前 ${name}</h2>
-    <ol>
-        ${li}
-        <!--ここに名前、類似度、画像が人数分追加される-->
-    </ol>
-
+    <h2>おなまえ ${name}</h2>
+    <table>
+        <tbody>
+            <tr>
+                <th>じゅんい</th>
+                <th>なまえ</th>
+                <th>てんすう</th>
+                <th>がぞう</th>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <table>
+            <tbody>
+                ${li}
+                <!--ここに名前、類似度、画像が人数分追加される-->
+            </tbody>
+        </table>
+    </div>
 
 </body>
 
