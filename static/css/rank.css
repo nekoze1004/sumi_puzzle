@@ -7,11 +7,6 @@ body {
     color: white;
 }
 
-input, input.name {
-    font-family: inherit;
-    font-size: 100%;
-}
-
 h1 {
     font-size: 9vw;
     margin-top: -10px;
@@ -21,45 +16,34 @@ h1 {
 h2 {
     font-size: 5vw;
     margin-top: -5px;
-
 }
 
-label {
-    font-size: 3vw;
-    vertical-align: middle;
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 5px;
-    font-weight: bold;
-
-}
-input {
-    font-size: 3vw;
-    border-radius: 10px;
-    vertical-align: middle;
+div {
+    height: 100px;
+    overflow: auto;
 }
 
-input.name {
-    vertical-align: middle;
-    height: 40px;
+table {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-@media screen and (max-width:767px) {
-    /*　画面サイズが767px以下の場合読み込む　*/
-    h1 {
-        font-size: 5vw;
-    }
-    h2, h3 {
-        font-size: 4vw;
-    }
-    p {
-        font-size: 3vw;
-    }
-    .form_set, input {
-        font-size: 2vw;
-    }
-    input.name {
-        height: 30px;
-        width: 5vw;
-    }
+table th,
+table td {
+    text-align: center;
+    border-style: solid dashed;
+    border-width: 1px;
+    white-space: nowrap;
+    border: dotted 1px white;
+    width: 100px;
+}
+
+tbody {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+img {
+    width: 2vw;
+    height: 3vw;
 }
