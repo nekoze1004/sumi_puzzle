@@ -5,6 +5,7 @@ import datetime
 import sqlite3
 import os
 import random
+import cv2
 
 app = Flask(__name__)
 db_write = "INSERT INTO result(name, ruijido, result_img_path) VALUES(?, ?, ?)"
@@ -64,21 +65,42 @@ def result():
     nose_ = request.args.get("nose_")
 
     # 各パーツの座標を辞書型で保持する
-    parts = {"ear_left": parts_purge(earl),
-             "ear_right": parts_purge(earr),
-             "eye_left": parts_purge(eyel),
-             "eye_right": parts_purge(eyer),
-             "hair_left": parts_purge(hairl),
-             "hair_right": parts_purge(hairr),
-             "hige_center": parts_purge(higec),
-             "hige_left": parts_purge(higel),
-             "hige_right": parts_purge(higer),
-             "mayu_left": parts_purge(mayul),
-             "mayu_right": parts_purge(mayur),
-             "mouse": parts_purge(mous),
-             "nose": parts_purge(nose_)}
-    print(parts)
+    parts_xy = {"ear_left": parts_purge(earl),
+                "ear_right": parts_purge(earr),
+                "eye_left": parts_purge(eyel),
+                "eye_right": parts_purge(eyer),
+                "hair_left": parts_purge(hairl),
+                "hair_right": parts_purge(hairr),
+                "hige_center": parts_purge(higec),
+                "hige_left": parts_purge(higel),
+                "hige_right": parts_purge(higer),
+                "mayu_left": parts_purge(mayul),
+                "mayu_right": parts_purge(mayur),
+                "mouse": parts_purge(mous),
+                "nose": parts_purge(nose_)}
+    print(parts_xy)
     # 画像合成の始まり
+    base_img = cv2.imread("./static/img/face.png")
+    base_img = cv2.resize(base_img, (300, 380))
+    for p in parts_xy.keys():
+        parts_img = cv2.imread(f"./static/img/{p}.png")
+        p_y, p_x, _ = parts_img.shape
+        x_offset = parts_xy[p][0]
+        y_offset = parts_xy[p][1]
+
+        base_y, base_x, _ = base_img.shape
+
+        if base_img < p_x + x_offset:
+            parts_cat_x = p_x + x_offset - base_img
+
+        try:
+            base_img[y_offset:y_offset+p_y, x_offset:x_offset+p_x] = parts_img
+        except Exception as e:
+            print(f"{e} {p} {parts_xy[p]} {p_y, p_x}, {y_offset+p_y} {x_offset+p_x}")
+    #cv2.imshow(name, base_img)
+    #cv2.waitKey(0)
+    #cv2.destroyAllWindows()
+
 
     # ここで類似度計算をする
     ruijido = random.randint(0, 100)
@@ -107,16 +129,17 @@ def ranking():
     cursor.execute("select * from result ORDER BY ruijido DESC")
     db_result = cursor.fetchall()
 
-    li = ""
-    for i in db_result:
-        li += f"""<li>
-                    {i[0]}
-                    {i[1]}
-                    {i[2]}
-                </li>"""
+    tr = ""
+    for i, d in enumerate(db_result):
+        tr += f"""<tr>
+                    <td>{i}</td>
+                    <td>{d[0]}</td>
+                    <td>{d[1]}</td>
+                    <td>{d[2]}</td>
+                </tr>"""
 
     context = {"name": name,
-               "li": li
+               "tr": tr
                }
     html = string.Template(html)
     html = html.substitute(context)
