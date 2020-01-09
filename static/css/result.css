@@ -21,3 +21,17 @@ h2 {
 p {
     font-size: 3vw;
 }
+
+input {
+    padding: 15px 0;
+    width: 200px;
+    color: #FFF;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+}
+
+input[type='submit'] {
+    background-color: black;
+}
