@@ -41,9 +41,13 @@ def puzzle():
 
 
 def parts_purge(raw_data):
-    _, x, y = raw_data.split("_")
-    x = int(x)
-    y = int(y)
+    try:
+        _, x, y = raw_data.split("_")
+        x = int(x)
+        y = int(y)
+    except Exception as e:
+        x = 1000
+        y = 1000
     return (x, y)
 
 
@@ -83,24 +87,60 @@ def result():
     base_img = cv2.imread("./static/img/face.png")
     base_img = cv2.resize(base_img, (300, 380))
     for p in parts_xy.keys():
-        parts_img = cv2.imread(f"./static/img/{p}.png")
-        p_y, p_x, _ = parts_img.shape
+        parts_img = cv2.imread(f"./static/img/{p}.png", -1)
+        p_x, p_y, _ = parts_img.shape
+        mask = parts_img[:, :, 3]
+        mask = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
+        mask = mask // 255
+        parts_img = parts_img[:, :, :3]
+
         x_offset = parts_xy[p][0]
         y_offset = parts_xy[p][1]
 
-        base_y, base_x, _ = base_img.shape
+        base_x, base_y, _ = base_img.shape
+        parts_start_x = 0
+        parts_start_y = 0
+        parts_end_x = p_x
+        parts_end_y = p_y
 
-        if base_img < p_x + x_offset:
-            parts_cat_x = p_x + x_offset - base_img
+        base_start_x = x_offset
+        base_start_y = y_offset
+        base_end_x = p_x + x_offset
+        base_end_y = p_y + y_offset
+
+        if x_offset > base_x or y_offset > base_y:  # base画像の中にパーツが明らかに入っていない場合はスキップする
+            continue
+
+        if 0 > x_offset:
+            parts_start_x = abs(x_offset)
+            base_start_x = 0
+
+        if 0 > y_offset:
+            parts_start_y = abs(y_offset)
+            base_start_y = 0
+
+        if base_x < p_x + x_offset:
+            parts_cat_x = p_x + x_offset - base_x
+            base_cat_x = base_x
+            print(f"{p} baseX < p_x + x_offset {parts_cat_x} {base_cat_x}")
+
+        if base_y < p_y + y_offset:
+            parts_cat_y = p_y + y_offset - base_y
+            base_cat_y = base_y
+            print(f"{p} baseY < p_y + y_offset {parts_cat_y} {base_cat_y}")
 
         try:
-            base_img[y_offset:y_offset+p_y, x_offset:x_offset+p_x] = parts_img
+            base_img[base_start_x:base_end_x, base_start_y:base_end_y] \
+                += parts_img[parts_start_x:parts_end_x, parts_start_y:parts_end_y] \
+                   * mask[parts_start_x:parts_end_x, parts_start_y:parts_end_y]
         except Exception as e:
-            print(f"{e} {p} {parts_xy[p]} {p_y, p_x}, {y_offset+p_y} {x_offset+p_x}")
-    #cv2.imshow(name, base_img)
-    #cv2.waitKey(0)
-    #cv2.destroyAllWindows()
-
+            print(f"{e} parts_name:{p}")
+            print(f"base_img[{base_start_x}:{base_end_x}, {base_start_y}:{base_end_y}] \
+                += parts_img[{parts_start_x}:{parts_end_x}, {parts_start_y}:{parts_end_y}] \
+                   * mask[{parts_start_x}:{parts_end_x}, {parts_start_y}:{parts_end_y}]")
+    cv2.imshow(name, base_img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
     # ここで類似度計算をする
     ruijido = random.randint(0, 100)
@@ -132,10 +172,10 @@ def ranking():
     tr = ""
     for i, d in enumerate(db_result):
         tr += f"""<tr>
-                    <td>{i}</td>
+                    <td>{i + 1}</td>
                     <td>{d[0]}</td>
                     <td>{d[1]}</td>
-                    <td>{d[2]}</td>
+                    <td><img src="{d[2]}"></td>
                 </tr>"""
 
     context = {"name": name,
