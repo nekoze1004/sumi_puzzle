@@ -23,9 +23,11 @@ div {
     overflow: auto;
 }
 
-table {
+table,
+tr {
     border-collapse: collapse;
     width: 100%;
+    border: 2px solid white;
 }
 
 table th,
