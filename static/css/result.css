@@ -8,32 +8,16 @@ body {
 }
 
 h1 {
-    font-size: 9vw;
+    font-size: 10vw;
     margin-top: -10px;
-    margin-bottom: -10px;
+    margin-bottom: -5px;
 }
 
 h2 {
     font-size: 5vw;
-    margin-top: -10px;
-    margin-bottom: -10px;
+    margin-top: -5px;
 }
-@media screen and (max-width:767px) {
-    /*　画面サイズが767px以下の場合読み込む　*/
-    h1 {
-        font-size: 5vw;
-    }
-    h2, h3 {
-        font-size: 4vw;
-    }
-    p {
-        font-size: 3vw;
-    }
-    .form_set, input {
-        font-size: 2vw;
-    }
-    input.name {
-        height: 30px;
-        width: 5vw;
-    }
+
+p {
+    font-size: 3vw;
 }
