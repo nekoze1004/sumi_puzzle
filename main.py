@@ -8,7 +8,7 @@ import random
 import cv2
 
 app = Flask(__name__)
-db_write = "INSERT INTO result(name, ruijido, result_img_path) VALUES(?, ?, ?)"
+db_write = "INSERT INTO result(name, result_img_path) VALUES(?, ?)"
 
 
 def init_db():
@@ -18,7 +18,7 @@ def init_db():
     else:
         db = sqlite3.connect("puzzle_result_DB.db")
         cursor = db.cursor()
-        cursor.execute("CREATE TABLE result(name, ruijido, result_img_path)")
+        cursor.execute("CREATE TABLE result(name, result_img_path)")
     return db, cursor
 
 
@@ -84,7 +84,7 @@ def result():
                 "nose": parts_purge(nose_)}
     print(parts_xy)
     # 画像合成の始まり
-    base_img = cv2.imread("./static/img/face.png")
+    base_img = cv2.imread("./static/img/face2.png")
     base_img = cv2.resize(base_img, (300, 380))
     for p in parts_xy.keys():
         parts_img = cv2.imread(f"./static/img/{p}.png", -1)
@@ -138,21 +138,24 @@ def result():
             print(f"base_img[{base_start_x}:{base_end_x}, {base_start_y}:{base_end_y}] \
                 += parts_img[{parts_start_x}:{parts_end_x}, {parts_start_y}:{parts_end_y}] \
                    * mask[{parts_start_x}:{parts_end_x}, {parts_start_y}:{parts_end_y}]")
-    cv2.imshow(name, base_img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+
+    now = datetime.datetime.now()
+    now.strftime("%Y/%m/%d %H:%M:%S")
+    filename = f'{name}_{now.strftime("%Y%m%d_%H%M%S")}'
+    cv2.imwrite(f"./static/result_img/{filename}.png", base_img)
 
     # ここで類似度計算をする
-    ruijido = random.randint(0, 100)
+    # ruijido = random.randint(0, 100)
+    # 類似度は廃止
 
     # DB書き込み
     db, cursor = init_db()
-    cursor.execute(db_write, (name, ruijido, "./hogehoge.png"))
+    cursor.execute(db_write, (name, f"../static/result_img/{filename}.png"))
     db.commit()
 
     html = open("./html/result.html", "r", encoding="utf-8").read()
     context = {"name": name,
-               "ruijido": ruijido}
+               "img_path": f'<img src="../static/result_img/{filename}.png">'}
 
     html = string.Template(html)
     html = html.substitute(context)
@@ -164,9 +167,9 @@ def ranking():
     name = request.args.get("name")
     html = open("./html/ranking.html", "r", encoding="utf-8").read()
 
-    # 読み込んだDBからランキング情報をリストで返す
+    # 読み込んだDBから名前とPath情報をリストで返す
     db, cursor = init_db()
-    cursor.execute("select * from result ORDER BY ruijido DESC")
+    cursor.execute("select * from result")
     db_result = cursor.fetchall()
 
     tr = ""
@@ -174,8 +177,7 @@ def ranking():
         tr += f"""<tr>
                     <td>{i + 1}</td>
                     <td>{d[0]}</td>
-                    <td>{d[1]}</td>
-                    <td><img src="{d[2]}"></td>
+                    <td><img src="{d[1]}"></td>
                 </tr>"""
 
     context = {"name": name,
